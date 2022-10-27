@@ -47,10 +47,12 @@ function App() {
             return pokemon.name.english.toLowerCase().includes(pesquisa.toLowerCase());
           })
           .filter((pokemon)=>{
-            if (tipo===""){
-              return true
-            }else{
-            return pokemon.type[0]===tipo || pokemon.type[1]===tipo;}
+            return tipo ? pokemon.type.includes(tipo) : pokemon
+
+            // if (tipo===""){
+            //   return true
+            // }else{
+            // return pokemon.type[0]===tipo || pokemon.type[1]===tipo;}
           })
           .sort((a, b)=>{
             if(ordem==="Crescente"){
